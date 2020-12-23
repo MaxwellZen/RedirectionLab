@@ -11,7 +11,7 @@ public class MakeStars {
         for (int i = 0; i < v.length(); i++) {
           System.out.print("*");
         }
-        System.out.print(" ");
+        if (u.hasNext()) System.out.print(" ");
       }
       System.out.println();
     }
