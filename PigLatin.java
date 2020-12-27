@@ -23,12 +23,22 @@ public class PigLatin {
   }
   public static String pigLatinBest(String s){
     s = s.toLowerCase();
-    if (s.length()<=1) return s;
+    if (s.length() ==0) return s;
     if (! Character.isLetter(s.charAt(0))) return s;
     if (! Character.isLetter(s.charAt(s.length()-1))) return pigLatin(s.substring(0, s.length()-1))+s.substring(s.length()-1);
     return pigLatin(s);
   }
   public static void main(String args[]) {
-    System.out.println(pigLatinBest(args[0]));
+    Scanner s = new Scanner(System.in);
+    while (s.hasNext()) {
+      String t = s.nextLine();
+      Scanner u = new Scanner(t);
+      while (u.hasNext()) {
+        String v = u.next();
+        System.out.print(pigLatinBest(v));
+        if (u.hasNext()) System.out.print(" ");
+      }
+      System.out.println();
+    }
   }
 }
