@@ -10,6 +10,7 @@ public class PigLatin {
     }
   }
   public static String pigLatin(String s){
+    s = s.toLowerCase();
     String vowels[] = {"a", "e", "i", "o", "u"};
     for (int i = 0; i < vowels.length; i++) {
       if (s.substring(0, 1).equals(vowels[i])) return s + "hay";
@@ -20,7 +21,14 @@ public class PigLatin {
     }
     return s.substring(1) + s.substring(0, 1) + "ay";
   }
+  public static String pigLatinBest(String s){
+    s = s.toLowerCase();
+    if (s.length()<=1) return s;
+    if (! Character.isLetter(s.charAt(0))) return s;
+    if (! Character.isLetter(s.charAt(s.length()-1))) return pigLatin(s.substring(0, s.length()-1))+s.substring(s.length()-1);
+    return pigLatin(s);
+  }
   public static void main(String args[]) {
-    System.out.println(pigLatin(args[0]));
+    System.out.println(pigLatinBest(args[0]));
   }
 }
